@@ -1,3 +1,5 @@
+use std::collections::HashMap;
+
 fn main() {
     println!("Hello, world!");
 
@@ -80,6 +82,57 @@ fn main() {
         "Car order 3: {:?}, Hard top = {}, {:?}, {}, {} miles",
         car.age.0, car.roof, car.motor, car.color, car.age.1
     );
+
+    //  if/else （if 块可以接表达式）
+    let book_type = "history";
+    let book_name = if book_type == "history" {
+        "The Sun Also Rises"
+    } else if book_type == "science" {
+        "The Martian"
+    } else {
+        "The Martian"
+    };
+
+    println!("book_name: {}", book_name);
+
+    // HashMap
+    let mut book_prices_map: HashMap<String, u8> = HashMap::new();
+    book_prices_map.insert(String::from("Rust Cook Book"), 1);
+    book_prices_map.insert(String::from("Go Cook Book"), 2);
+    println!("book prices map: {:?}", book_prices_map);
+
+    let book_name_key: &str = "Rust Cook Book";
+    println!(
+        "《{book_name_key}》 book's price is {:?}",
+        book_prices_map.get(book_name_key)
+    );
+    book_prices_map.remove(book_name_key);
+
+    println!(
+        "《{book_name_key}》 book's price is {:?}",
+        book_prices_map.get(book_name_key)
+    );
+
+    // loop 2. 中断循环，并返回值
+    let mut counter = 1;
+    let stop_loop = loop {
+        counter += 1;
+        if counter > 10 {
+            break;
+        }
+    };
+
+    println!("counter is {:?}", stop_loop);
+
+    // for 1. 基础写法
+    let num_arrs = [1, 2, 3, 4, 5];
+    for num in num_arrs.iter() {
+        println!("num : {num}");
+    }
+    // for 2. 简单写法
+    for i in 0..5 {
+        println!("i : {i}");
+    }
 }
 
 fn add(x: i64, y: i64) -> i64 {

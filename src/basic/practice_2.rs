@@ -28,12 +28,11 @@ enum Age {
 fn car_quality(miles: u32) -> (Age, u32) {
     // Declare and initialize the return tuple value
     // For a new car, set the miles to 0
-    let mut quality: (Age, u32) = (Age::New, 0);
     if miles > 0 {
         quality = (Age::Used, miles)
     }
     // Return the completed tuple to the caller
-    return quality;
+    (Age::New, miles)
 }
 
 // Build a new "Car" using the values of four input arguments
