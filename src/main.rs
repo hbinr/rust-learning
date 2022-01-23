@@ -133,6 +133,13 @@ fn main() {
     for i in 0..5 {
         println!("i : {i}");
     }
+
+    // 13. 错误处理
+    // panic!("error handler");// error: process didn't exit successfully
+
+    let num_arr = vec![1, 2, 3];
+    // 数组越界会引发 panic
+    println!("{}", num_arr[4]);
 }
 
 fn add(x: i64, y: i64) -> i64 {
