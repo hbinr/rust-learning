@@ -27,6 +27,6 @@ fn struct_learn() {
 
     println!(
         "student_1's name is {}, age is {}",
-        student_1.name, student_1.age
+        student_1.0, student_1.1
     );
 }

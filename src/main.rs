@@ -1,5 +1,8 @@
 use std::collections::HashMap;
 
+// 结构体定义--元组结构
+struct Teacher(String, u8);
+
 fn main() {
     println!("Hello, world!");
 
@@ -27,6 +30,12 @@ fn main() {
     println!(
         "student_1's name is {}, age is {}",
         student_1.name, student_1.age
+    );
+
+    let teacher = Teacher(String::from("tom"), 18);
+    println!(
+        "teacher element one: {}, element two: {}",
+        teacher.0, teacher.1
     );
     #[derive(Debug)]
     enum People {
@@ -139,7 +148,7 @@ fn main() {
 
     let num_arr = vec![1, 2, 3];
     // 数组越界会引发 panic
-    println!("{}", num_arr[4]);
+    println!("{}", num_arr[2]);
 }
 
 fn add(x: i64, y: i64) -> i64 {
