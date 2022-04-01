@@ -33,4 +33,10 @@ fn while_loop_for() {
     };
 
     println!("counter is {:?}", stop_loop);
+
+    // for
+    let a_vec = vec![1, 2, 3, 4, 5];
+    for item in a_vec {
+        println!("item: {item}");
+    }
 }

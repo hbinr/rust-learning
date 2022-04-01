@@ -6,7 +6,7 @@ fn arrary() {
     let nums = [1, 2, 3, 4, 5];
 
     // 初始值后跟一个分号，然后是数组长度。
-    let bytes = [0; 5];
+    let bytes = [0; 5]; // [0, 0, 0, 0, 0]
 
     let one = nums[0];
 

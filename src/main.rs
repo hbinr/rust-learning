@@ -6,6 +6,9 @@ struct Teacher(String, u8);
 fn main() {
     println!("Hello, world!");
 
+    // const
+    const MAX_SIZE: u8 = 1;
+    println!("MAX_SIZE: {MAX_SIZE}");
     //  声明一个 元组
     let a_tuple = (1, 1.23, '2', true, "hello");
 
@@ -135,11 +138,14 @@ fn main() {
 
     // for 1. 基础写法
     let num_arrs = [1, 2, 3, 4, 5];
-    for num in num_arrs.iter() {
+    // for num in num_arrs.iter() {
+    // 或者不加 iter() rust 1.57后改动
+    for num in num_arrs {
         println!("num : {num}");
     }
     // for 2. 简单写法
     for i in 0..5 {
+        // 从0开始，不包括5
         println!("i : {i}");
     }
 

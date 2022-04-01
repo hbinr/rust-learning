@@ -14,8 +14,8 @@ fn if_else_learn() {
     } else if book_type == "science" {
         "The Martian"
     } else {
-        "The Martian"
+        "Unknown"
     };
 
-    println!("book_name: P{}", book_name);
+    println!("book_name: {book_name}", book_name);
 }
