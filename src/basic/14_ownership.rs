@@ -1,5 +1,5 @@
 // copy trait: 针对存与 stack 上的数据。任何简单的标量的组合类型(基本数据类型)都实现了 copy trait;
-// 这些基本数据类型都保存于栈上，如:整数、浮点数、bool类型、字符、元组(全部基本数据类型组成)
+// 这些基本数据类型都保存于栈上，如:整数、浮点数、bool类型、字符、元组(全部基本数据类型组成)、不可变引用 &T，但是注意: 可变引用 &mut T 是不可以 Copy的
 
 fn copy_demo() {
     // 实现了 copy trait
@@ -16,8 +16,33 @@ fn clone_trait() {
 
 // 所有权与函数
 // 1. 将值传递给函数会发生移动或复制，类似把值赋值给变量
-// 2. 函数再返回值的时候同样也会发生所有权的转移
+// 2. 函数在返回值的时候同样也会发生所有权的转移
 
+// 1. 入参所有权demo
+fn arg_demo() {
+    let s = String::from("hello"); // s 进入作用域
+
+    takes_ownership(s); // s 的值移动到函数里 ...
+                        // ... 所以到这里不再有效
+
+    let x = 5; // x 进入作用域
+
+    makes_copy(x); // x 应该移动函数里，
+                   // 但 i32 是 Copy 的，所以在后面可继续使用 x}
+} // 这里, x 先移出了作用域，然后是 s。但因为 s 的值已被移走，
+  // 所以不会有特殊操作
+
+fn takes_ownership(some_string: String) {
+    // some_string 进入作用域
+    println!("{}", some_string);
+} // 这里，some_string 移出作用域并调用 `drop` 方法。占用的内存被释放
+
+fn makes_copy(some_integer: i32) {
+    // some_integer 进入作用域
+    println!("{}", some_integer);
+} // 这里，some_integer 移出作用域。不会有特殊操作
+
+// 2. 返回值所有权demo
 fn callback_demo() {
     // some_str 的所有权移到了 s1
     let s1 = gives_ownership();
