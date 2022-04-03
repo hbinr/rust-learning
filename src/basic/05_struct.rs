@@ -30,3 +30,13 @@ fn struct_learn() {
         student_1.0, student_1.1
     );
 }
+
+// 结构体-方法和函数
+
+impl Student {
+    // 方法: 第一个参数是&self
+    fn study(&self) {}
+
+    // 函数: 没有self参数
+    fn run() {}
+}
